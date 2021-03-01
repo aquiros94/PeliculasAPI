@@ -38,7 +38,7 @@ namespace PeliculasApi
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins(Configuration.GetValue<string>("frontend")).AllowAnyMethod().AllowAnyHeader();
+                    builder.WithOrigins(Configuration.GetValue<string>("frontend")).AllowAnyMethod().AllowAnyHeader().WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
                 });
             });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();

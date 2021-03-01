@@ -6,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PeliculasApi.Entidades;
 using PeliculasAPI.DTOs;
+using PeliculasAPI.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PeliculasAPI.Controllers
@@ -29,15 +31,27 @@ namespace PeliculasAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<GeneroDTO>>> Get()
+        public async Task<ActionResult<List<GeneroDTO>>> Get([FromQuery] PaginacionDTO paginacionDTO)
         {
-            return mapper.Map<List<GeneroDTO>>(await context.Generos.ToListAsync());
+            IQueryable<Genero> generos;
+
+            generos = context.Generos.AsQueryable();
+            await HttpContext.InsertarParametrosPaginacionEnCabecera(generos);
+
+            return mapper.Map<List<GeneroDTO>>(await generos.OrderBy(x => x.Nombre).Paginar(paginacionDTO).ToListAsync());
         }
 
         [HttpGet("{Id:int}")]
-        public async Task<ActionResult<Genero>> Get(int id)
+        public async Task<ActionResult<GeneroDTO>> Get(int id)
         {
-            throw new NotImplementedException();
+            Genero generoEncontrado;
+            generoEncontrado = await context.Generos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (generoEncontrado == null)
+            {
+                return NotFound();
+            }
+            return mapper.Map<GeneroDTO>(generoEncontrado);
         }
 
         [HttpPost]
@@ -48,16 +62,38 @@ namespace PeliculasAPI.Controllers
             return NoContent();
         }
 
-        [HttpPut]
-        public ActionResult Put([FromBody] Genero genero)
+        [HttpPut("{Id:int}")]
+        public async Task<ActionResult> Put(int id, [FromBody] GeneroCreacionDTO generoModificar)
         {
-            throw new NotImplementedException();
+            Genero generoEncontrado;
+            generoEncontrado = await context.Generos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (generoEncontrado == null)
+            {
+                return NotFound();
+            }
+
+            generoEncontrado = mapper.Map(generoModificar, generoEncontrado);
+            await context.SaveChangesAsync();
+
+            return NoContent();
         }
 
-        [HttpDelete]
-        public ActionResult Delete()
+        [HttpDelete("{Id:int}")]
+        public async Task<ActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            Genero generoEncontrado;
+            generoEncontrado = await context.Generos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (generoEncontrado == null)
+            {
+                return NotFound();
+            }
+
+            context.Generos.Remove(generoEncontrado);
+            await context.SaveChangesAsync();
+
+            return NoContent();
         }
 
 
