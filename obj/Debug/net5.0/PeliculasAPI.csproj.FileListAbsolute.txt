@@ -65,3 +65,7 @@ C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Azure.Core.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Azure.Storage.Blobs.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Azure.Storage.Common.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
+C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\NetTopologySuite.dll
+C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
+C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\EFCoreSqlServerNetTopologySuite.cs

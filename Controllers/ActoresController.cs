@@ -80,9 +80,9 @@ namespace PeliculasAPI.Controllers
                 return NotFound();
             }
 
-            if (actorEncontrado.Foto != null)
+            if (actorModificar.Foto != null)
             {
-                await almacenadorArchivos.EditarArchivo(CONTENEDOR, actorModificar.Foto, actorEncontrado.Foto);
+                actorEncontrado.Foto = await almacenadorArchivos.EditarArchivo(CONTENEDOR, actorModificar.Foto, actorEncontrado.Foto);
             }
 
             actorEncontrado = mapper.Map(actorModificar, actorEncontrado);

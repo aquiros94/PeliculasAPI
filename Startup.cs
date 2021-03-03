@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NetTopologySuite;
+using NetTopologySuite.Geometries;
 using PeliculasAPI;
 using PeliculasAPI.Filtros;
 using PeliculasAPI.Utilidades;
@@ -31,10 +34,23 @@ namespace PeliculasApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
-            services.AddTransient<IAlmacenadorArchivos, AlmacenadorAzureStorage>();
+            services.AddAutoMapper(typeof(Startup)); //Iniciar Automapper
+
+            services.AddSingleton(provider => new MapperConfiguration(config =>
+            {
+                var geometryFactory = provider.GetRequiredService<GeometryFactory>();
+                config.AddProfile(new AutoMapperProfiles(geometryFactory));
+            }));
+
+            services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326)); // Iniciar NetTopologySuite
+
+            services.AddTransient<IAlmacenadorArchivos, AlmacenadorAzureStorage>(); //Nueva inyección dependencia Azure Storage
+
+            services.AddHttpContextAccessor();
+
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("defaultConnection"),
+            sqlserver => sqlserver.UseNetTopologySuite()));
 
             services.AddCors(options =>
             {
@@ -42,7 +58,8 @@ namespace PeliculasApi
                 {
                     builder.WithOrigins(Configuration.GetValue<string>("frontend")).AllowAnyMethod().AllowAnyHeader().WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
                 });
-            });
+            }); //Configurar cors con una cabecera
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 
             services.AddControllers();
