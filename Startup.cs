@@ -40,7 +40,7 @@ namespace PeliculasApi
             {
                 var geometryFactory = provider.GetRequiredService<GeometryFactory>();
                 config.AddProfile(new AutoMapperProfiles(geometryFactory));
-            }));
+            }).CreateMapper());
 
             services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326)); // Iniciar NetTopologySuite
 
