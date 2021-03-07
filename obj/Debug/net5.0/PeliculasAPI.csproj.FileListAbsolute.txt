@@ -11,7 +11,6 @@ C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\PeliculasAPI.csprojAssemblyReference.cache
 C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\PeliculasAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\PeliculasAPI.AssemblyInfoInputs.cache
 C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\PeliculasAPI.AssemblyInfo.cs
@@ -69,3 +68,5 @@ C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Microsoft.EntityFrame
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\NetTopologySuite.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
 C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\EFCoreSqlServerNetTopologySuite.cs
+C:\wamp\www\AngularPeliculas\PeliculasApi\obj\Debug\net5.0\PeliculasAPI.csprojAssemblyReference.cache
+C:\wamp\www\AngularPeliculas\PeliculasApi\bin\Debug\net5.0\Newtonsoft.Json.dll

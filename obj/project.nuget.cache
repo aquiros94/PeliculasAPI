@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+xa5lYJFJyNeP1wRb6SHmsk8lVsbmemXmQteM9M2gqIiuu5/0k7jd8hcSChettI4QhaRD1B4Yx5zLnX5+CiE/w==",
+  "dgSpecHash": "gCsBGVQRqAXgmBz/De1Vjpy/1Y18DQkU5irr8nBzlMOIbE63XU8x7etO3CNPUYbNyS0cV897AoWTiTwiydz4aQ==",
   "success": true,
   "projectFilePath": "C:\\wamp\\www\\AngularPeliculas\\PeliculasApi\\PeliculasAPI.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\nettopologysuite\\2.1.0\\nettopologysuite.2.1.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\nettopologysuite.io.sqlserverbytes\\2.0.0\\nettopologysuite.io.sqlserverbytes.2.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
